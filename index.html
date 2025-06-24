@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Rossi | Curated Living</title>
+    
+    <meta name="description" content="Isabella Rossi offers a bespoke real estate experience, specializing in architecturally significant homes and curated lifestyles in The Woodlands.">
+    <meta name="keywords" content="luxury realtor, the woodlands real estate, curated homes, architectural homes, bespoke real estate services, Isabella Rossi">
+    <meta name="author" content="Isabella Rossi">
+
+    <meta property="og:title" content="Isabella Rossi | Curated Living">
+    <meta property="og:description" content="Elevating the Real Estate Experience">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2874&auto=format&fit=crop">
+    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --background: #FFFFFF; 
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --accent: #0D9488; /* Teal */
+            --border-color: #F0F0F0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .accent-color { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .border-accent { border-color: var(--accent); }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2874&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+        .hero-text {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Initial Header styles: transparent background, black text */
+        #navbar a, #navbar button {
+            color: var(--text-primary);
+            text-shadow: none;
+            transition: color 0.3s ease-in-out;
+        }
+        #navbar .btn {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background-color: transparent;
+        }
+        #navbar .btn:hover {
+            background-color: var(--text-primary);
+            color: white;
+        }
+        #navbar a:not(.btn):hover {
+            color: var(--accent);
+        }
+
+        /* Scrolled Header styles */
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            border-bottom-width: 1px;
+            border-color: var(--border-color);
+        }
+         .nav-scrolled a, .nav-scrolled button {
+             color: var(--text-primary) !important;
+             text-shadow: none !important;
+         }
+         .nav-scrolled a:not(.btn):hover {
+            color: var(--accent) !important;
+         }
+         .nav-scrolled .btn {
+             color: var(--accent) !important;
+             border-color: var(--accent) !important;
+             background-color: transparent !important;
+         }
+          .nav-scrolled .btn:hover {
+             background-color: var(--accent) !important;
+             color: white !important;
+         }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+        }
+        .btn:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+        }
+        
+        .listing-card {
+            background-color: #F9FAFB;
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .listing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        /* Status Tag Styles */
+        .status-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .status-sold {
+            background-color: #FEE2E2; /* Light Red */
+            color: #991B1B;
+        }
+
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Isabella Rossi",
+      "image": "https://images.unsplash.com/photo-1628890923662-2cb23c2e0cfe?q=80&w=2874&auto=format&fit=crop",
+      "telephone": "+1-321-654-987",
+      "email": "isabella.rossi@curatedliving.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Serenity Drive",
+        "addressLocality": "The Woodlands",
+        "addressRegion": "TX",
+        "postalCode": "77380",
+        "addressCountry": "US"
+      },
+      "url": "#",
+      "priceRange": "$$$$"
+    }
+    </script>
+</head>
+<body class="antialiased">
+
+    <header id="navbar" class="sticky-nav">
+        <div class="container mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-playfair font-medium tracking-wide">Isabella Rossi</a>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="transition duration-300">About</a>
+                    <a href="#listings" class="transition duration-300">Properties</a>
+                    <a href="#testimonials" class="transition duration-300">Testimonials</a>
+                    <a href="#contact" class="btn">Contact</a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--background)]">
+            <a href="#about" class="block py-3 px-6 text-base hover:bg-gray-50 border-t border-[var(--border-color)]">About</a>
+            <a href="#listings" class="block py-3 px-6 text-base hover:bg-gray-50 border-t border-[var(--border-color)]">Properties</a>
+            <a href="#testimonials" class="block py-3 px-6 text-base hover:bg-gray-50 border-t border-[var(--border-color)]">Testimonials</a>
+            <a href="#contact" class="block py-3 px-6 text-base hover:bg-gray-50 border-t border-b border-[var(--border-color)]">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-bg min-h-[90vh] flex items-center justify-center text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-playfair leading-tight mb-4 hero-text" data-aos="fade-up">Elevating the Real Estate Experience.</h1>
+                <p class="text-lg md:text-xl font-light max-w-2xl mx-auto hero-text" data-aos="fade-up" data-aos-delay="200">Isabella Rossi | Your trusted partner in real estate.</p>
+            </div>
+        </section>
+        
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                    <div class="md:w-5/12 relative" data-aos="fade-right">
+                        <div class="absolute -top-8 -left-8 w-full h-full border-2 border-accent-color/20 rounded-lg"></div>
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1628890923662-2cb23c2e0cfe?q=80&w=2874&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=Isabella';" alt="Isabella Rossi" class="rounded-lg w-full h-auto object-cover relative z-10 shadow-xl">
+                    </div>
+                    <div class="md:w-7/12" data-aos="fade-left" data-aos-delay="100">
+                        <h2 class="text-3xl md:text-4xl font-playfair mb-6">More than an agent, a partner in your real estate journey.</h2>
+                        <p class="text-[var(--text-secondary)] mb-6 leading-relaxed">My practice is built on the belief that a home is the most vital part of our lives—a sanctuary for rest, a space for connection, and a canvas for self-expression. I blend market expertise with a genuine passion for design and architecture to provide a client experience that is both seamless and inspiring. My commitment is to not only meet your expectations but to exceed them, ensuring every transaction is handled with discretion, integrity, and exceptional care.</p>
+                        <a href="#contact" class="font-semibold hover:text-accent-color transition-colors duration-300 group">
+                            Begin the Conversation <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="listings" class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-playfair mb-4" data-aos="fade-up">Featured Properties</h2>
+                    <p class="text-[var(--text-secondary)]" data-aos="fade-up" data-aos-delay="100">A look at some of the remarkable homes we have recently had the pleasure of representing.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                    <div data-aos="fade-up">
+                        <div class="listing-card bg-white">
+                            <img loading="lazy" src="https://nypost.com/wp-content/uploads/sites/2/2024/07/gimme-2700-85596881.jpg?quality=75&strip=all&w=1024" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=Modern+Estate';" alt="Modernist Lakefront Estate" class="w-full h-80 object-cover">
+                            <div class="p-8">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-2xl font-playfair leading-tight">Modernist Lakefront Estate</h3>
+                                    <span class="status-tag status-sold flex-shrink-0 ml-4">Sold</span>
+                                </div>
+                                <p class="text-[var(--text-secondary)] mt-2">The Woodlands, TX</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="listing-card bg-white">
+                            <img loading="lazy" src="https://townsquare.media/site/192/files/2024/08/attachment-3800-miramar-ave-highland-park-tx-75205-mls-20676418-zillow.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=Oak+Ridge';" alt="The Oak Ridge Residence" class="w-full h-80 object-cover">
+                            <div class="p-8">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-2xl font-playfair leading-tight">The Oak Ridge Residence</h3>
+                                    <span class="status-tag status-sold flex-shrink-0 ml-4">Sold</span>
+                                </div>
+                                <p class="text-[var(--text-secondary)] mt-2">Conroe, TX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-16" data-aos="fade-up">
+                    <a href="listings.html" class="btn">See More Properties</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials" class="py-20 md:py-32 bg-white">
+             <div class="container mx-auto px-6">
+                  <h2 class="text-3xl md:text-4xl font-playfair text-center mb-16" data-aos="fade-up">Words from My Clients</h2>
+                  
+                  <div class="max-w-3xl mx-auto grid grid-cols-1 gap-12" data-aos="fade-up" data-aos-delay="100">
+                       
+                        <div class="testimonial-card text-center">
+                            <svg class="w-12 h-12 mx-auto mb-6 text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352,4C4.456,4,0,8.456,0,13.352v9.296C0,27.544,4.456,32,9.352,32c4.896,0,8.648-4.456,8.648-9.352 v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352c-0.352,0.352-0.352,0.352,0,0.704 c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704c0.704,0,1.056,0.352,1.056,1.056v1.752 C14.648,22.456,12.4,24,9.352,24c-2.152,0-3.2-1.4-3.2-3.2v-7.352c0-2.152,1.056-3.2,3.2-3.2 c2.152,0,3.2,1.056,3.2,3.2v0.704C12.552,15.16,12.552,16.216,11.5,16.216c-1.056,0-1.056-1.056-1.056-1.056 C10.448,12.304,10.096,8.856,9.352,4z M22.648,4c-4.896,0-9.352,4.456-9.352,9.352v9.296c0,4.896,4.456,9.352,9.352,9.352 c4.896,0,8.648-4.456,8.648-9.352v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352 c-0.352,0.352-0.352,0.352,0,0.704c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704 c0.704,0,1.056,0.352,1.056,1.056v1.752c0,4.896-2.152,6.648-5.2,6.648c-2.152,0-3.2-1.4-3.2-3.2v-7.352 c0-2.152,1.056-3.2,3.2-3.2c2.152,0,3.2,1.056,3.2,3.2v0.704c0,1.056,0,2.112-1.056,2.112c-1.056,0-1.056-1.056-1.056-1.056 C23.904,12.304,23.552,8.856,22.648,4z"></path></svg>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed mb-6 text-gray-700">"Isabella possesses a rare combination of market savvy and impeccable taste. She transformed what could have been a stressful process into a seamless, elegant experience. We couldn't be happier with the outcome and the beautiful home she helped us find."</p>
+                            <p class="font-semibold uppercase tracking-widest text-sm text-[var(--text-secondary)]">- The Atherton Family</p>
+                        </div>
+
+                        <div class="testimonial-card text-center">
+                            <svg class="w-12 h-12 mx-auto mb-6 text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352,4C4.456,4,0,8.456,0,13.352v9.296C0,27.544,4.456,32,9.352,32c4.896,0,8.648-4.456,8.648-9.352 v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352c-0.352,0.352-0.352,0.352,0,0.704 c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704c0.704,0,1.056,0.352,1.056,1.056v1.752 C14.648,22.456,12.4,24,9.352,24c-2.152,0-3.2-1.4-3.2-3.2v-7.352c0-2.152,1.056-3.2,3.2-3.2 c2.152,0,3.2,1.056,3.2,3.2v0.704C12.552,15.16,12.552,16.216,11.5,16.216c-1.056,0-1.056-1.056-1.056-1.056 C10.448,12.304,10.096,8.856,9.352,4z M22.648,4c-4.896,0-9.352,4.456-9.352,9.352v9.296c0,4.896,4.456,9.352,9.352,9.352 c4.896,0,8.648-4.456,8.648-9.352v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352 c-0.352,0.352-0.352,0.352,0,0.704c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704 c0.704,0,1.056,0.352,1.056,1.056v1.752c0,4.896-2.152,6.648-5.2,6.648c-2.152,0-3.2-1.4-3.2-3.2v-7.352 c0-2.152,1.056-3.2,3.2-3.2c2.152,0,3.2,1.056,3.2,3.2v0.704c0,1.056,0,2.112-1.056,2.112c-1.056,0-1.056-1.056-1.056-1.056 C23.904,12.304,23.552,8.856,22.648,4z"></path></svg>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed mb-6 text-gray-700">"From the initial consultation to the final closing, Isabella's professionalism and dedication were second to none. Her marketing strategy was brilliant, attracting the perfect buyers in a matter of days. We are immensely grateful for her guidance."</p>
+                            <p class="font-semibold uppercase tracking-widest text-sm text-[var(--text-secondary)]">- Dr. and Mrs. Chen</p>
+                        </div>
+
+                         <div class="testimonial-card text-center">
+                            <svg class="w-12 h-12 mx-auto mb-6 text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352,4C4.456,4,0,8.456,0,13.352v9.296C0,27.544,4.456,32,9.352,32c4.896,0,8.648-4.456,8.648-9.352 v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352c-0.352,0.352-0.352,0.352,0,0.704 c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704c0.704,0,1.056,0.352,1.056,1.056v1.752 C14.648,22.456,12.4,24,9.352,24c-2.152,0-3.2-1.4-3.2-3.2v-7.352c0-2.152,1.056-3.2,3.2-3.2 c2.152,0,3.2,1.056,3.2,3.2v0.704C12.552,15.16,12.552,16.216,11.5,16.216c-1.056,0-1.056-1.056-1.056-1.056 C10.448,12.304,10.096,8.856,9.352,4z M22.648,4c-4.896,0-9.352,4.456-9.352,9.352v9.296c0,4.896,4.456,9.352,9.352,9.352 c4.896,0,8.648-4.456,8.648-9.352v-1.352c0-2.896-1.704-5.544-4.648-5.544c-1.2,0-2.896,0.352-3.648,1.352 c-0.352,0.352-0.352,0.352,0,0.704c0.352,0.352,0.704,0.352,1.056,0c0.704-0.704,2.152-0.704,2.896-0.704 c0.704,0,1.056,0.352,1.056,1.056v1.752c0,4.896-2.152,6.648-5.2,6.648c-2.152,0-3.2-1.4-3.2-3.2v-7.352 c0-2.152,1.056-3.2,3.2-3.2c2.152,0,3.2,1.056,3.2,3.2v0.704c0,1.056,0,2.112-1.056,2.112c-1.056,0-1.056-1.056-1.056-1.056 C23.904,12.304,23.552,8.856,22.648,4z"></path></svg>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed mb-6 text-gray-700">"As an architect, I was particular about finding an agent who understood design. Isabella's appreciation for architecture is palpable. She didn't just sell a house; she sold a vision. Her expertise was invaluable."</p>
+                            <p class="font-semibold uppercase tracking-widest text-sm text-[var(--text-secondary)]">- Marcus Thorne</p>
+                        </div>
+
+                  </div>
+             </div>
+        </section>
+
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-playfair" data-aos="fade-up">Let's Begin the Journey</h2>
+                <p class="text-[var(--text-secondary)] mt-4 mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">I invite you to schedule a private consultation to discuss your real estate aspirations. Reach out directly.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-8" data-aos="fade-up" data-aos-delay="150">
+                    <a href="mailto:isabella.rossi@curatedliving.com" class="text-lg hover:text-accent-color transition-colors">
+                        isabella.rossi@curatedliving.com
+                    </a>
+                    <span class="hidden sm:inline text-gray-300">|</span>
+                    <a href="tel:+13216549870" class="text-lg hover:text-accent-color transition-colors">
+                        +1 (321) 654-9870
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+                 <div class="md:col-span-1">
+                    <a href="#" class="text-2xl font-playfair font-medium tracking-wide">Isabella Rossi</a>
+                    <p class="text-sm text-[var(--text-secondary)] mt-2">Curated Living</p>
+                </div>
+                 <div class="md:col-span-1">
+                    <h4 class="font-semibold mb-4 uppercase tracking-wider text-sm text-gray-500">Navigate</h4>
+                    <a href="#about" class="block mb-2 text-[var(--text-secondary)] hover:text-accent-color transition">About</a>
+                    <a href="#listings" class="block mb-2 text-[var(--text-secondary)] hover:text-accent-color transition">Properties</a>
+                    <a href="#testimonials" class="block mb-2 text-[var(--text-secondary)] hover:text-accent-color transition">Testimonials</a>
+                </div>
+                 <div class="md:col-span-1">
+                    <h4 class="font-semibold mb-4 uppercase tracking-wider text-sm text-gray-500">Connect</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 mb-4">
+                        <a href="#" class="text-[var(--text-secondary)] hover:text-accent-color transition">Instagram</a>
+                        <a href="#" class="text-[var(--text-secondary)] hover:text-accent-color transition">Pinterest</a>
+                        <a href="#" class="text-[var(--text-secondary)] hover:text-accent-color transition">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-[var(--border-color)] text-center text-xs text-gray-400">
+                <p>&copy; <span id="year"></span> Isabella Rossi Real Estate. Design inspired by bespoke digital studios.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuButton.querySelector('svg');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16"></path>`;
+            } else {
+                mobileMenuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`;
+            }
+        });
+        
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16"></path>`;
+            });
+        });
+        
+        // Navigation Bar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        };
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+    </script>
+</body>
+</html>
