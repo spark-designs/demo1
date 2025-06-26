@@ -56,6 +56,14 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
+        /* Mobile fix for hero image */
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll; /* Disable parallax on mobile */
+                min-height: 70vh;
+            }
+        }
+
         .sticky-nav {
             position: sticky;
             top: 0;
